@@ -1,25 +1,40 @@
 "use client";
 
-import { CalendarCheck } from "lucide-react";
+import { CalendarCheck, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+// const navItems = [
+//   { title: "Home", href: "/" },
+//   {
+//     title: "Services",
+//     children: [
+//       { title: "Urgent Care", href: "/services/urgent-care" },
+//       { title: "Primary Care", href: "/services/primary-care" },
+//       { title: "Mental Health", href: "/services/mental-health" },
+//       { title: "TMS Therapy", href: "/services/tms-therapy" },
+//     ],
+//   },
+//   { title: "Membership Plans", href: "/membership-plans" },
+//   { title: "Patient Resources / Forms", href: "/patient-resources" },
+//   { title: "Insurance & Payments", href: "/insurance-payments" },
+// ];
 const navItems = [
   { title: "Home", href: "/" },
   {
     title: "Services",
     children: [
-      { title: "Urgent Care", href: "/services/urgent-care" },
-      { title: "Primary Care", href: "/services/primary-care" },
-      { title: "Mental Health", href: "/services/mental-health" },
-      { title: "TMS Therapy", href: "/services/tms-therapy" },
+      { title: "Urgent Care", href: "#" },
+      { title: "Primary Care", href: "#" },
+      { title: "Mental Health", href: "#" },
+      { title: "TMS Therapy", href: "#" },
     ],
   },
-  { title: "Membership Plans", href: "/membership-plans" },
-  { title: "Patient Resources / Forms", href: "/patient-resources" },
-  { title: "Insurance & Payments", href: "/insurance-payments" },
+  { title: "Membership Plans", href: "#" },
+  { title: "Patient Resources / Forms", href: "#" },
+  { title: "Insurance & Payments", href: "#" },
 ];
 
 const Navbar = () => {
@@ -48,29 +63,32 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-8 items-center">
             {navItems.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive =
+                item.href === pathname ||
+                item.children?.some((child) => child.href === pathname);
 
-              // If the item has children → it's a dropdown parent
               if (item.children) {
                 return (
                   <div key={item.title} className="relative group">
                     <button
-                      className={`transition-colors duration-300 cursor-pointer ${
-                        isActive
-                          ? "text-primary font-semibold"
-                          : "hover:text-primary hover:font-semibold"
-                      }`}
+                      className={`flex items-center gap-1 transition-colors duration-300 cursor-pointer
+            ${isActive ? "text-primary font-semibold" : "hover:text-primary"}
+          `}
                     >
                       {item.title}
+                      <ChevronDown size={16} strokeWidth={3} />
                     </button>
 
+                    {/* Invisible gap to maintain hover state */}
+                    <div className="absolute left-0 top-full h-3 w-full bg-transparent"></div>
+
                     {/* Dropdown menu */}
-                    <div className="absolute hidden group-hover:block bg-primary shadow-lg p-3 rounded-md w-[200px] ">
+                    <div className="absolute left-0 top-full mt-3 hidden group-hover:block bg-primary shadow-lg p-3 rounded-md min-w-[200px] z-50">
                       {item.children.map((child) => (
                         <Link
                           key={child.title}
                           href={child.href}
-                          className="block px-3 py-1 hover:text-white text-white"
+                          className="block px-3 py-1 text-background hover:text-white hover:underline"
                         >
                           {child.title}
                         </Link>
@@ -80,7 +98,6 @@ const Navbar = () => {
                 );
               }
 
-              // Normal nav item with href
               return (
                 <Link
                   key={item.title}
@@ -101,13 +118,13 @@ const Navbar = () => {
 
             <Link
               href={"/schedule"}
-              className="group relative py-1.5 px-3.5 lg:px-6 lg:py-2 bg-primary rounded-full font-medium text-secondary-background overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-second-primary/50 cursor-pointer text-white"
+              className="group relative py-1.5 px-3.5 lg:px-6 lg:py-2 bg-primary rounded-full font-medium text-background overflow-hidden hover:scale-105 hover:shadow-2xs hover:shadow-primary cursor-pointer transition-transform duration-500 ease-in-out"
             >
               <span className="relative z-10 flex items-center justify-center gap-2 text-sm lg:text-base">
                 Book Appointment
                 <CalendarCheck className=" w-4 h-4  lg:w-5 lg:h-5 group-hover:rotate-12 transition-transform" />
               </span>
-              <div className="absolute inset-0 bg-second-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-primary-hover opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </Link>
           </nav>
 
@@ -115,7 +132,7 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md text-text bg-secondary-background focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary cursor-pointer"
+              className="p-2 rounded-md text-text  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary cursor-pointer"
               aria-expanded={isOpen}
               aria-label="Toggle navigation"
             >
@@ -149,7 +166,7 @@ const Navbar = () => {
       {/* Mobile Sidebar (Overlay + Slide-in Drawer) */}
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black/40 z-40 top-[72px] lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black/40 z-40 top-[83.4px] lg:hidden transition-opacity duration-300 ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={() => setIsOpen(false)}
@@ -157,7 +174,7 @@ const Navbar = () => {
 
       {/* Sidebar Drawer */}
       <div
-        className={`fixed top-[72px] left-0 h-[calc(100vh-72px)] w-64 bg-secondary-background shadow-xl z-50 lg:hidden
+        className={`fixed top-[83.4px] left-0 h-[calc(100vh-83.4px)] w-64 bg-background shadow-xl z-50 lg:hidden
   transform transition-transform duration-300 flex flex-col ${
     isOpen ? "translate-x-0" : "-translate-x-full"
   }`}
@@ -176,9 +193,11 @@ const Navbar = () => {
                       onClick={() =>
                         setOpenItem(openItem === item.title ? null : item.title)
                       }
-                      className="w-full text-left px-3 py-2 text-sm font-medium rounded-md hover:bg-background"
+                      className="w-full text-left px-3 py-2 text-sm font-medium rounded-md hover:bg-primary hover:text-background cursor-pointer flex items-center justify-between"
                     >
                       {item.title}
+
+                      <ChevronDown size={16} strokeWidth={3} />
                     </button>
 
                     {/* Dropdown content */}
@@ -189,7 +208,7 @@ const Navbar = () => {
                             key={child.title}
                             href={child.href}
                             onClick={() => setIsOpen(false)}
-                            className="block px-3 py-2 text-sm rounded-md hover:bg-background"
+                            className="block px-3 py-2 text-sm rounded-md hover:bg-primary hover:text-background"
                           >
                             {child.title}
                           </Link>
@@ -208,8 +227,8 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`block px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     isActive
-                      ? "font-semibold bg-background"
-                      : "hover:bg-background"
+                      ? "font-semibold bg-primary text-background"
+                      : "hover:bg-primary hover:text-background"
                   }`}
                 >
                   {item.title}
@@ -223,7 +242,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="group relative py-1.5 px-3.5 lg:px-6 lg:py-2 bg-primary  rounded-md font-medium text-secondary-background  overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-second-primary/50 w-full cursor-pointer"
+              className="group relative py-2 px-3.5 lg:px-6 lg:py-2 bg-primary  rounded-md font-medium  overflow-hidden hover:scale-105  w-full cursor-pointer text-background hover:shadow-2xs hover:shadow-primary transition-transform duration-500 ease-in-out hover:bg-primary-hover"
             >
               <span className="relative z-10 flex items-center justify-center gap-2 text-sm lg:text-base">
                 Book Appointment
