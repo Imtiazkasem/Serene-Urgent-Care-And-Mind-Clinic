@@ -28,8 +28,8 @@ const navItems = [
     children: [
       { title: "Urgent Care", href: "/services/urgent-care" },
       { title: "Primary Care", href: "/services/primary-care" },
-      { title: "Mental Health", href: "#" },
-      { title: "TMS Therapy", href: "#" },
+      { title: "Mental Health", href: "/services/mental-health" },
+      { title: "TMS Therapy", href: "/services/tms-therapy " },
       { title: "Insurance Acceptrd", href: "#" },
       { title: "Affordable Membership Plans", href: "#" },
       { title: "FLU/COVID Testing", href: "#" },
