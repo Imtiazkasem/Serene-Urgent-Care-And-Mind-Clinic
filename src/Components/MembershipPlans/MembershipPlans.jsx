@@ -1,226 +1,304 @@
-import { AlertCircle, CheckCircle, Shield, Sparkles } from "lucide-react";
-import React from "react";
+import { FileText } from "lucide-react";
+import React, { useState } from "react";
 
-const MembershipPlans = ({setShowPlans}) => {
+const MembershipPlans = ({ setShowPlans, planDetails }) => {
 
-  const plans = [
-    {
-      name: "SERENE BASIC",
-      subtitle: "Access & Wellness Essentials",
-      monthly: 39,
-      yearly: 399,
-    //   color: "from-cyan-500 to-blue-500",
-      color: "bg-text",
-      benefits: [
-        "1 Annual Non-covered Wellness & Lifestyle Assessment",
-        "Unlimited Virtual Access Check-ins (administrative or wellness; no diagnosis or treatment)",
-        "Priority scheduling",
-        "Medication refill coordination (not prescribing visits)",
-        "Digital health access portal",
-        "10% off imaging",
-        "10% off labs",
-        "40% discount on self-pay office visits",
-      ],
-    },
-    {
-      name: "SERENE PLUS",
-      subtitle: "Wellness & Care Access Plan",
-      monthly: 89,
-      yearly: 949,
-    //   color: "from-primary to-accent",
-      color: "bg-primary-hover",
-      popular: true,
-      benefits: [
-        "2 Non-covered Wellness & Preventive Assessments per year",
-        "4 Discounted In-clinic Visits per year",
-        "Unlimited Virtual Access Check-ins",
-        "20% off most self-pay labs & imaging",
-        "1 Non-covered Mental Health Wellness Consultation",
-        "Basic non-billable in-house tests (flu/strep/UA/glucose/pregnancy)",
-      ],
-    },
-    {
-      name: "SERENE PREMIUM",
-      subtitle: "Comprehensive Access Plan",
-      monthly: 159,
-      yearly: 1699,
-    //   color: "from-purple-500 to-indigo-500",
-      color: "bg-text",
-      benefits: [
-        "4 Non-covered Wellness Assessments per year",
-        "Unlimited Same-Day Scheduling Access",
-        "Unlimited Virtual Access Check-ins",
-        "Most in-house non-billable tests included",
-        "40% off self-pay imaging & advanced diagnostics",
-        "2 Non-covered Mental Health Optimization Sessions",
-        "50% off TMS evaluation",
-        "Annual body composition scan",
-      ],
-      familyAddon: "$49/month per additional member",
-    },
-  ];
+  const [formData, setFormData] = useState({
+    memberName: "",
+    dateOfBirth: "",
+    address: "",
+    effectiveDate: new Date().toISOString().split("T")[0],
+    agreed: false,
+    signature: "",
+    signatureDate: new Date().toISOString().split("T")[0],
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.agreed || !formData.signature) {
+      alert("Please complete all required fields and sign the agreement");
+      return;
+    }
+
+    console.table(formData);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 py-12 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-            <Sparkles className="w-4 h-4" />
-            <span>Membership Plans</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
-            Serene Care{" "}
-            <span className="text-primary">Membership Program</span>
-          </h1>
-
-          {/* Important Notice */}
-          <div className="max-w-4xl mx-auto mt-8 bg-third/10 border-2 border-third rounded-xl p-6">
-            <div className="flex items-start space-x-3">
-              <AlertCircle className="w-6 h-6 text-third shrink-0 mt-0.5" />
-              <div className="text-left">
-                <p className="text-sm text-slate-900 leading-relaxed">
-                  <strong>This membership is not health insurance.</strong> It
-                  does not replace insurance, cover medically necessary
-                  services, or alter insurance billing requirements. All
-                  clinical treatment will be billed to insurance or self-pay
-                  according to law.
-                </p>
-              </div>
+        <div className="bg-white rounded-t-2xl p-8 border-b border-slate-200">
+          <div className="flex items-center space-x-3 mb-4">
+            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+              <FileText className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-slate-900">
+                Membership Program Agreement
+              </h1>
+              <p className="text-sm text-slate-600">
+                Serene Urgent Care & Mind Clinic
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Plans Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`relative bg-white rounded-2xl border-2 ${
-                plan.popular
-                  ? "border-primary shadow-2xl scale-105"
-                  : "border-slate-200"
-              } overflow-hidden hover:shadow-xl transition-all`}
-            >
-              {plan.popular && (
-                <div className="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-sm font-semibold rounded-bl-lg">
-                  Most Popular
+                {/* Selected Plan Display */}
+        {planDetails && (
+          <div className="bg-white p-8 ">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-lg font-bold text-slate-900">{planDetails.name}</h2>
+                <p className="text-sm text-slate-600">{planDetails.subtitle}</p>
+              </div>
+              <div className="text-right">
+                <div className="text-2xl font-bold text-primary">
+                  ${planDetails.monthly}<span className="text-sm font-normal text-slate-600">/month</span>
                 </div>
-              )}
-
-              <div className={`bg-linear-to-br ${plan.color} p-6 text-white`}>
-                <h3 className="text-2xl font-bold mb-1">{plan.name}</h3>
-                <p className="text-sm opacity-90 mb-4">{plan.subtitle}</p>
-                <div className="space-y-2">
-                  <div>
-                    <span className="text-3xl font-bold">${plan.monthly}</span>
-                    <span className="text-sm opacity-90">/month</span>
-                  </div>
-                  <div className="text-sm opacity-90">
-                    or ${plan.yearly}/year
-                  </div>
+                <div className="text-sm text-slate-600">
+                  or ${planDetails.yearly}/year
                 </div>
               </div>
+            </div>
+            {/* <div className="bg-slate-50 rounded-lg p-4">
+              <h3 className="text-sm font-semibold text-slate-900 mb-2">Plan Benefits:</h3>
+              <ul className="space-y-2">
+                {planDetails.benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start text-sm text-slate-700">
+                    <span className="text-green-600 mr-2">✓</span>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div> */}
+          </div>
+        )}
 
-              <div className="p-6">
-                <h4 className="font-semibold text-slate-900 mb-4">Includes:</h4>
-                <ul className="space-y-3 mb-6">
-                  {plan.benefits.map((benefit, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start space-x-2 text-sm text-slate-700"
-                    >
-                      <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
+
+
+        {/* Agreement Form */}
+        <form onSubmit={handleSubmit} className="bg-white p-8">
+          {/* Member Information */}
+          <div className="mb-8">
+            <h2 className="text-xl font-bold text-slate-900 mb-4">
+              Member Information
+            </h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.memberName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, memberName: e.target.value })
+                  }
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition"
+                  placeholder="Enter your full name"
+                />
+              </div>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Date of Birth *
+                  </label>
+                  <input
+                    type="date"
+                    required
+                    value={formData.dateOfBirth}
+                    onChange={(e) =>
+                      setFormData({ ...formData, dateOfBirth: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Effective Date *
+                  </label>
+                  <input
+                    type="date"
+                    required
+                    value={formData.effectiveDate}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        effectiveDate: e.target.value,
+                      })
+                    }
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  Address *
+                </label>
+                <textarea
+                  required
+                  value={formData.address}
+                  onChange={(e) =>
+                    setFormData({ ...formData, address: e.target.value })
+                  }
+                  rows="2"
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition resize-none"
+                  placeholder="Enter your full address"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          {/* Agreement Text */}
+          <div className="bg-slate-50 rounded-xl p-6 mb-8 max-h-96 overflow-y-auto border border-slate-200">
+            <h3 className="font-bold text-slate-900 mb-4">
+              Membership Agreement Terms
+            </h3>
+            <div className="space-y-4 text-sm text-slate-700">
+              <div>
+                <h4 className="font-semibold text-slate-900 mb-2">
+                  1. PURPOSE OF THIS AGREEMENT
+                </h4>
+                <p>
+                  This Agreement establishes the terms under which the Member
+                  may participate in the Serene Care Membership Program. The
+                  Membership Program provides wellness, administrative, and
+                  non-covered benefits and is not insurance or a substitute for
+                  health insurance.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-slate-900 mb-2">
+                  2. MEMBERSHIP IS NOT INSURANCE
+                </h4>
+                <p className="mb-2">The Member acknowledges and agrees that:</p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>
+                    The Membership Program is not a health insurance plan, HMO,
+                    PPO, or any form of medical coverage.
+                  </li>
+                  <li>
+                    The Clinic does not assume financial risk for the
+                    Member&apos;s future medical needs.
+                  </li>
+                  <li>
+                    Members are strongly encouraged to maintain separate health
+                    insurance coverage.
+                  </li>
                 </ul>
-
-                {plan.familyAddon && (
-                  <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 mb-4">
-                    <p className="text-xs text-purple-900">
-                      <strong>Family Add-On:</strong> {plan.familyAddon}
-                    </p>
-                  </div>
-                )}
-
-                <button className="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-hover transition cursor-pointer">
-                  Select Plan
-                </button>
               </div>
 
-              <div className="bg-slate-50 px-6 py-4 border-t border-slate-200">
-                <p className="text-xs text-slate-600 italic">
-                  <strong>Important:</strong> All diagnostic or treatment-based
-                  visits will be billed per insurance rules or paid
-                  out-of-pocket.
+              <div>
+                <h4 className="font-semibold text-slate-900 mb-2">
+                  3. MEMBERSHIP FEES
+                </h4>
+                <p>
+                  Membership fees cover only the amenities, discounts, and
+                  wellness benefits. Membership fees do NOT cover any medical,
+                  diagnostic, therapeutic, or mental health treatment. All
+                  medically necessary services will be billed to the
+                  Member&apos;s insurance plan or charged as self-pay per the
+                  Clinic&apos;s standard rates.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-slate-900 mb-2">
+                  4. CANCELLATION & TERMINATION
+                </h4>
+                <p>
+                  The Member may cancel this Membership at any time with written
+                  notice. No long-term contract is created. Monthly membership
+                  fees are nonrefundable. Annual memberships may be refunded pro
+                  rata minus services already used.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-slate-900 mb-2">
+                  5. NO EMERGENCY CARE GUARANTEED
+                </h4>
+                <p>
+                  This Membership does not guarantee or include emergency
+                  services, after-hours medical care, or immediate physician
+                  availability. Members experiencing emergencies must call 911
+                  or go to the nearest emergency department.
                 </p>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Legal Disclaimers */}
-        <div className="max-w-4xl mx-auto space-y-6">
-          <h2 className="text-2xl font-bold text-slate-900 text-center mb-8">
-            Legal Disclaimers
-          </h2>
-
-          <div className="bg-white rounded-xl p-6 border border-slate-200">
-            <h3 className="font-bold text-slate-900 mb-2 flex items-center">
-              <Shield className="w-5 h-5 text-primary mr-2" />
-              This Membership Is Not Insurance
-            </h3>
-            <p className="text-sm text-slate-700">
-              This program is not a health insurance plan and does not provide
-              coverage for medical necessities, emergencies, chronic care
-              treatment, or any service normally covered by insurance.
-            </p>
           </div>
 
-          <div className="bg-white rounded-xl p-6 border border-slate-200">
-            <h3 className="font-bold text-slate-900 mb-2">
-              Insurance Billing Rules Still Apply
-            </h3>
-            <p className="text-sm text-slate-700">
-              If members use insurance for any covered medical service, all
-              co-pays, deductibles, and coinsurance remain due. Membership does
-              not reduce or waive legal insurance obligations.
-            </p>
+          {/* Acknowledgment */}
+          <div className="bg-third/10 border border-third rounded-xl p-6 mb-6">
+            <h3 className="font-bold text-slate-900 mb-3">Acknowledgment</h3>
+            <label className="flex items-start space-x-3 cursor-pointer">
+              <input
+                type="checkbox"
+                required
+                checked={formData.agreed}
+                onChange={(e) =>
+                  setFormData({ ...formData, agreed: e.target.checked })
+                }
+                className="mt-1 w-5 h-5 text-primary rounded focus:ring-primary"
+              />
+              <span className="text-sm text-slate-700">
+                I acknowledge that I have read and understand this Agreement. I
+                understand that Membership is not insurance, that medical
+                services are billed separately, and I agree to comply with all
+                terms.
+              </span>
+            </label>
           </div>
 
-          <div className="bg-white rounded-xl p-6 border border-slate-200">
-            <h3 className="font-bold text-slate-900 mb-2">
-              No Prepaid Medical Services
+          {/* Signature */}
+          <div className="mb-8">
+            <h3 className="font-bold text-slate-900 mb-4">
+              Electronic Signature
             </h3>
-            <p className="text-sm text-slate-700">
-              The membership fee pays only for access, wellness, administrative
-              conveniences, and discounted services—not for diagnosis,
-              evaluation, or treatment of medical conditions.
-            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  Type Your Full Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.signature}
+                  onChange={(e) =>
+                    setFormData({ ...formData, signature: e.target.value })
+                  }
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition"
+                  placeholder="Your signature"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  Date *
+                </label>
+                <input
+                  type="date"
+                  required
+                  value={formData.signatureDate}
+                  onChange={(e) =>
+                    setFormData({ ...formData, signatureDate: e.target.value })
+                  }
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/30 outline-none transition"
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="bg-white rounded-xl p-6 border border-slate-200">
-            <h3 className="font-bold text-slate-900 mb-2">
-              Medically Necessary Services Are Billed Separately
-            </h3>
-            <p className="text-sm text-slate-700">
-              Any service that constitutes medical evaluation, treatment,
-              diagnostic interpretation, mental health care, or prescription
-              management will be billed to insurance or charged as self-pay.
-            </p>
-          </div>
-
-          <div className="bg-primary/5 rounded-xl p-6 border border-primary">
-            <h3 className="font-bold text-primary mb-2">
-              Cancel Anytime / No Contract
-            </h3>
-            <p className="text-sm text-primary">
-              Required for California compliance. Members may cancel at any time
-              with written notice.
-            </p>
-          </div>
-        </div>
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-hover transition shadow-lg text-lg cursor-pointer"
+          >
+            Continue to Membership Plans
+          </button>
+        </form>
 
         {/* Back Button */}
         <div className="text-center mt-12">
