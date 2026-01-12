@@ -11,7 +11,9 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+
 const Hero = () => {
+
   return (
     <div className="relative bg-linear-to-br from-primary-hover/10 via-background to-secondary/10 overflow-hidden">
       {/* Decorative Background Elements */}
@@ -63,7 +65,7 @@ const Hero = () => {
               </Link> */}
 
               <Link
-                href="tel:+1234567890"
+                href="tel:+3104314558"
                 className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-hover transition"
               >
                 <Phone className="w-5 h-5 mr-2" />
