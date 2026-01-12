@@ -10,6 +10,7 @@
   --third: #fd9a00;
   --accent: #84b5b9;
   --text: #1e293b;
+  --border: rgba(4, 123, 134, 0.2);
 }
 
 @theme inline {
@@ -20,6 +21,7 @@
   --color-third: var(--third);
   --color-accent: var(--accent);
   --color-text: var(--text);
+  --color-border: var(--border);
 }
 
 /* Smooth transitions for theme switching */

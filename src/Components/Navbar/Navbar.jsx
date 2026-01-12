@@ -6,21 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-// const navItems = [
-//   { title: "Home", href: "/" },
-//   {
-//     title: "Services",
-//     children: [
-//       { title: "Urgent Care", href: "/services/urgent-care" },
-//       { title: "Primary Care", href: "/services/primary-care" },
-//       { title: "Mental Health", href: "/services/mental-health" },
-//       { title: "TMS Therapy", href: "/services/tms-therapy" },
-//     ],
-//   },
-//   { title: "Membership Plans", href: "/membership-plans" },
-//   { title: "Patient Resources / Forms", href: "/patient-resources" },
-//   { title: "Insurance & Payments", href: "/insurance-payments" },
-// ];
 const navItems = [
   { title: "Home", href: "/" },
   {
@@ -29,18 +14,18 @@ const navItems = [
       { title: "Urgent Care", href: "/services/urgent-care" },
       { title: "Primary Care", href: "/services/primary-care" },
       { title: "Mental Health", href: "/services/mental-health" },
-      { title: "TMS Therapy", href: "/services/tms-therapy " },
-      { title: "Insurance Acceptrd", href: "#" },
-      { title: "Affordable Membership Plans", href: "#" },
-      { title: "FLU/COVID Testing", href: "#" },
-      { title: "Physical Exams", href: "#" },
-      { title: "ADHD & Depression Treatment", href: "#" },
-      { title: "Hormone Therapy", href: "#" },
+      // { title: "TMS Therapy", href: "/services/tms-therapy " },
+      // { title: "Insurance Acceptrd", href: "#" },
+      // { title: "Affordable Membership Plans", href: "#" },
+      // { title: "FLU/COVID Testing", href: "#" },
+      // { title: "Physical Exams", href: "#" },
+      // { title: "ADHD & Depression Treatment", href: "#" },
+      // { title: "Hormone Therapy", href: "#" },
     ],
   },
   { title: "Membership Plans", href: "/membership-plans" },
   { title: "Patient Resources / Forms", href: "/patient-resources-form" },
-  { title: "Insurance & Payments", href: "#" },
+  // { title: "Insurance & Payments", href: "#" },
 ];
 
 const Navbar = () => {

@@ -125,7 +125,7 @@ const FAQSection = () => {
               Contact Us
             </a>
             <a
-              href="tel:+1234567890"
+              href="tel:+310431-4558"
               className="inline-flex items-center justify-center px-8 py-3 bg-white text-primary font-semibold rounded-lg border-2 border-primary hover:bg-primary/5 transition"
             >
               Call Now

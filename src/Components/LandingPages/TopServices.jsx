@@ -19,6 +19,7 @@ const TopServices = () => {
     {
       icon: Microscope,
       title: "Flu / COVID Testing",
+      url: "/services/flu-or-covid-esting",
       description: "Fast, accurate testing with same-day results",
       color: "from-cyan-500 to-blue-500",
       bgColor: "bg-cyan-50",
@@ -27,6 +28,7 @@ const TopServices = () => {
     {
       icon: ClipboardCheck,
       title: "Physical Exams",
+      url: "/services/physical-exams",
       description: "Comprehensive wellness checkups",
       color: "from-teal-500 to-emerald-500",
       bgColor: "bg-teal-50",
@@ -35,6 +37,7 @@ const TopServices = () => {
     {
       icon: Brain,
       title: "ADHD & Depression Treatment",
+      url: "/services/adhd-and-depression-treatment",
       description: "Personalized mental health care",
       color: "from-purple-500 to-indigo-500",
       bgColor: "bg-purple-50",
@@ -43,6 +46,7 @@ const TopServices = () => {
     {
       icon: Pill,
       title: "Hormone Therapy",
+      url: "/services/hormone-therapy",
       description: "Balance and wellness optimization",
       color: "from-pink-500 to-rose-500",
       bgColor: "bg-pink-50",
@@ -51,6 +55,7 @@ const TopServices = () => {
     {
       icon: HeartPulse,
       title: "Addiction Treatment",
+      url: "#",
       description: "Compassionate recovery support",
       color: "from-red-500 to-orange-500",
       bgColor: "bg-red-50",
@@ -59,6 +64,7 @@ const TopServices = () => {
     {
       icon: Zap,
       title: "TMS Therapy",
+      url: "/services/tms-therapy",
       description: "FDA-approved brain stimulation",
       color: "from-amber-500 to-yellow-500",
       bgColor: "bg-amber-50",
@@ -67,6 +73,7 @@ const TopServices = () => {
     {
       icon: Heart,
       title: "Women's Health",
+      url: "#",
       description: "Comprehensive care for women",
       color: "from-rose-500 to-pink-500",
       bgColor: "bg-rose-50",
@@ -75,6 +82,7 @@ const TopServices = () => {
     {
       icon: Droplets,
       title: "IV Fluids & Urgent Care",
+      url: "#",
       description: "Quick relief and rehydration",
       color: "from-sky-500 to-cyan-500",
       bgColor: "bg-sky-50",
@@ -103,9 +111,9 @@ const TopServices = () => {
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <a
+            <Link
               key={index}
-              href={`#${service.title.toLowerCase().replace(/\s+/g, "-")}`}
+              href={service.url}
               className="group relative bg-white rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-200 hover:border-transparent"
             >
               {/* Gradient Background on Hover */}
@@ -145,12 +153,12 @@ const TopServices = () => {
               <div
                 className={`absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r ${service.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
               ></div>
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <Link
             href="#all-services"
             className="inline-flex items-center px-8 py-4 bg-primary text-background font-semibold rounded-lg hover:bg-primary-hover transition shadow-lg group"
@@ -158,7 +166,7 @@ const TopServices = () => {
             View All Services
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
+        </div> */}
       </Container>
     </section>
   );

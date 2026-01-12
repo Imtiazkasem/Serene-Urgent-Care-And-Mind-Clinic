@@ -13,6 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
+  
   return (
     <footer className="bg-primary text-background">
       {/* Main Footer */}
@@ -20,19 +21,19 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
-          {/* Logo */}
-          <div>
-            <Link href="/">
-              <Image
-                src={"/logo.svg"}
-                height={64}
-                width={120}
-                className=" w-30 lg:w-44 h-auto"
-                alt="logo"
-                priority
-              />
-            </Link>
-          </div>
+            {/* Logo */}
+            <div>
+              <Link href="/">
+                <Image
+                  src={"/logo.svg"}
+                  height={64}
+                  width={120}
+                  className=" w-30 lg:w-44 h-auto"
+                  alt="logo"
+                  priority
+                />
+              </Link>
+            </div>
             <p className="text-sm text-background/90">
               Serene Urgent Care And Mind Clinic - Providing compassionate
               healthcare when you need it most.
@@ -170,7 +171,7 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-background mt-0.5 shrink-0" />
                 <span className="text-sm">
-                  4508 W Imperial HighwayInglewood, CA 90304
+                  4508 W Imperial Highway, Inglewood, CA 90304
                 </span>
               </li>
               <li className="flex items-center space-x-3">
@@ -179,7 +180,7 @@ const Footer = () => {
                   href="tel:+1234567890"
                   className="text-sm hover:text-primary-hover transition"
                 >
-                  (123) 456-7890
+                  (310)431-4558
                 </Link>
               </li>
               <li className="flex items-center space-x-3">

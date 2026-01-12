@@ -21,11 +21,10 @@ const MembershipPlans = ({ setShowPlans, planDetails }) => {
     }
 
     console.table(formData);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 py-12 px-4">
+    <div  className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 py-12 px-4 scroll-my-10">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="bg-white rounded-t-2xl p-8 border-b border-slate-200">
