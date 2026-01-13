@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Optional: block common non-public / utility paths (adjust if you actually use these)
+Disallow: /api/
+Disallow: /_next/
+
+# If you have a sitemap (recommended), include it:
+Sitemap: https://www.sereneurgentcare.com/sitemap.xml

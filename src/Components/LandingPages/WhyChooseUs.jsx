@@ -1,6 +1,7 @@
 import React from 'react';
 import { Clock, Users, Brain, Zap, Shield, CreditCard, Check, Sparkles } from 'lucide-react';
 import Container from '../Container/Container';
+import Link from 'next/link';
 
 const WhyChooseUs = () => {
  const features = [
@@ -96,18 +97,18 @@ const WhyChooseUs = () => {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4">
-            <a 
-              href="#book" 
+            <Link
+              href="/about-serene-urgent-care-and-mind-clinic" 
               className="px-8 py-4 bg-primary text-background font-semibold rounded-lg hover:bg-primary-hover transition shadow-lg"
             >
-              Schedule Your Visit Today
-            </a>
-            <a 
+              More About Seren
+            </Link>
+            {/* <a 
               href="#services" 
               className="px-8 py-4 bg-background text-primary font-semibold rounded-lg border-2 border-primary hover:bg-primary/5 transition"
             >
               Explore Our Services
-            </a>
+            </a> */}
           </div>
         </div>
       </Container>

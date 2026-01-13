@@ -13,41 +13,40 @@ import Container from "../Container/Container";
 import Link from "next/link";
 
 const AboutSection = () => {
- const values = [
+  const values = [
     {
       icon: Heart,
       title: "Compassionate Care",
-      description: "We treat every patient with empathy and respect"
+      description: "We treat every patient with empathy and respect",
     },
     {
       icon: Clock,
       title: "Fast & Accessible",
-      description: "Quick appointments and walk-in availability"
+      description: "Quick appointments and walk-in availability",
     },
     {
       icon: Shield,
       title: "Affordable Solutions",
-      description: "Transparent pricing and flexible payment options"
+      description: "Transparent pricing and flexible payment options",
     },
     {
       icon: Users,
       title: "Integrated Approach",
-      description: "Complete body-mind care in one place"
-    }
+      description: "Complete body-mind care in one place",
+    },
   ];
 
   const benefits = [
     "No need for multiple appointments or referrals",
     "Comprehensive physical and mental health services",
     "Same-day evaluations and treatment plans",
-    "Board-certified providers with extensive experience"
+    "Board-certified providers with extensive experience",
   ];
 
   return (
     <section className="py-16 lg:py-24">
       <Container>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          
           {/* Left Content */}
           <div className="space-y-8">
             {/* Badge */}
@@ -58,12 +57,20 @@ const AboutSection = () => {
 
             {/* Heading */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text leading-tight">
-              Fast, Affordable, <span className="text-primary">Compassionate</span> Healthcare
+              Fast, Affordable,{" "}
+              <span className="text-primary">Compassionate</span> Healthcare
             </h2>
 
             {/* Mission Statement */}
             <p className="text-lg text-slate-600 leading-relaxed">
-              At <span className="font-semibold text-text">Serene Urgent Care And Mind Clinic</span>, our mission is to provide fast, affordable, compassionate medical and mental healthcare. Our integrated model ensures patients receive complete body–mind care without the need for multiple appointments or referrals.
+              At{" "}
+              <span className="font-semibold text-text">
+                Serene Urgent Care And Mind Clinic
+              </span>
+              , our mission is to provide fast, affordable, compassionate
+              medical and mental healthcare. Our integrated model ensures
+              patients receive complete body–mind care without the need for
+              multiple appointments or referrals.
             </p>
 
             {/* Benefits List */}
@@ -81,7 +88,7 @@ const AboutSection = () => {
             {/* CTA Button */}
             <div className="pt-4">
               <Link
-                href="#about" 
+                href="/about-serene-urgent-care-and-mind-clinic"
                 className="inline-flex items-center px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-hover transition shadow-lg"
               >
                 Learn More About Us
@@ -99,18 +106,22 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold">Our Commitment</h3>
-                  <p className="text-teal-100 text-sm">Excellence in integrated care</p>
+                  <p className="text-teal-100 text-sm">
+                    Excellence in integrated care
+                  </p>
                 </div>
               </div>
               <p className="text-teal-50 leading-relaxed">
-                We believe healthcare should be holistic, accessible, and centered around you. That&apos;s why we&apos;ve created a one-stop solution for all your medical and mental health needs.
+                We believe healthcare should be holistic, accessible, and
+                centered around you. That&apos;s why we&apos;ve created a
+                one-stop solution for all your medical and mental health needs.
               </p>
             </div>
 
             {/* Values Grid */}
             <div className="grid grid-cols-2 gap-4">
               {values.map((value, index) => (
-                <div 
+                <div
                   key={index}
                   className="bg-background rounded-xl p-6 hover:bg-primary/5 transition-colors border border-slate-200 hover:border-primary/20 group"
                 >
@@ -120,9 +131,7 @@ const AboutSection = () => {
                   <h4 className="font-bold text-text mb-1 text-sm">
                     {value.title}
                   </h4>
-                  <p className="text-xs text-slate-600">
-                    {value.description}
-                  </p>
+                  <p className="text-xs text-slate-600">{value.description}</p>
                 </div>
               ))}
             </div>
@@ -133,15 +142,19 @@ const AboutSection = () => {
                 <Target className="w-6 h-6 text-amber-600" />
               </div>
               <div>
-                <h4 className="font-bold text-text mb-1">Patient-Centered Care</h4>
-                <p className="text-sm text-slate-600">Your health journey, our priority</p>
+                <h4 className="font-bold text-text mb-1">
+                  Patient-Centered Care
+                </h4>
+                <p className="text-sm text-slate-600">
+                  Your health journey, our priority
+                </p>
               </div>
             </div>
           </div>
         </div>
       </Container>
     </section>
-  )
+  );
 };
 
 export default AboutSection;

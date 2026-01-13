@@ -1,43 +1,68 @@
 import React from 'react';
-import { Clock, Heart, Stethoscope, Activity, Shield, CheckCircle, Phone, Calendar, Sparkles } from 'lucide-react';
-import Link from 'next/link';
+import { Clock, Activity, Heart, Shield, CheckCircle, Calendar, Phone, Sparkles, Stethoscope } from 'lucide-react';
 
 const UrgentCarePage = () => {
- const services = [
-    "Minor injuries and wounds",
-    "Sprains, strains, and fractures",
-    "Cuts requiring stitches",
-    "Burns and skin conditions",
-    "Flu, cold, and respiratory infections",
-    "COVID-19 testing and treatment",
-    "Allergic reactions",
-    "Fever and infections",
-    "Nausea, vomiting, and diarrhea",
-    "Urinary tract infections",
-    "Minor eye and ear problems",
-    "Work and school physicals"
+  const illnessesConditions = [
+    "Cold, flu, and COVID-19 symptoms",
+    "Respiratory infections and sore throat",
+    "Ear and eye infections",
+    "Fever and viral illnesses",
+    "Urinary tract infections (UTIs)",
+    "Gastrointestinal symptoms (nausea, vomiting, diarrhea)",
+    "Allergic reactions (non-life-threatening)"
+  ];
+
+  const injuriesEmergencies = [
+    "Minor cuts, lacerations, and wound care",
+    "Sprains, strains, and muscle injuries",
+    "Minor fractures and sports injuries",
+    "Back and joint pain",
+    "Minor burns and insect bites"
+  ];
+
+  const testingDiagnostics = [
+    "Flu & COVID-19 testing",
+    "Rapid strep testing",
+    "Urinalysis",
+    "Blood work and in-house lab testing",
+    "Imaging referrals (if needed)"
+  ];
+
+  const treatmentsProcedures = [
+    "Stitches and wound management",
+    "IV fluids for dehydration",
+    "Breathing treatments and nebulizer therapy",
+    "Injections and medications",
+    "Splinting and basic orthopedic care"
+  ];
+
+  const examsPreventive = [
+    "School, sports, and work physicals",
+    "Pre-employment exams",
+    "TB testing and screenings",
+    "Vaccinations (as available)"
   ];
 
   const features = [
     {
       icon: Clock,
-      title: "No Appointment Needed",
-      description: "Walk in anytime during our extended hours"
+      title: "Walk-ins & Same-Day Appointments",
+      description: "No need to wait - we're here when you need us"
     },
     {
       icon: Activity,
-      title: "Minimal Wait Times",
-      description: "Get care quickly when you need it most"
+      title: "Shorter Wait Times Than ER",
+      description: "Fast, efficient care without emergency room delays"
     },
     {
       icon: Heart,
-      title: "Compassionate Care",
-      description: "Calm, supportive environment for your comfort"
+      title: "Experienced & Compassionate Providers",
+      description: "Professional medical care in a comfortable environment"
     },
     {
       icon: Shield,
-      title: "Integrated Support",
-      description: "Medical and mental health services in one place"
+      title: "In-House Testing",
+      description: "On-site diagnostics for faster results and treatment"
     }
   ];
 
@@ -59,26 +84,26 @@ const UrgentCarePage = () => {
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Urgent Care When You <span className="text-primary">Need It Most</span>
+              Urgent Care at <span className="text-primary">Serene Urgent Care & Mind Clinic</span>
             </h1>
             
-            <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              Serene Urgent Care & Mind Clinic offers fast, compassionate medical care when you need it most. Our team treats minor injuries, illnesses, and everyday health concerns with minimal wait times and a calm, supportive environment.
+            <p className=" text-lg md:text-xl text-slate-600 mb-6 md:mb-8 leading-relaxed">
+              Serene Urgent Care & Mind Clinic provides fast, reliable, and compassionate care for non-life-threatening illnesses and injuries—without the long wait times of an emergency room. Our urgent care services are designed to deliver prompt treatment in a calm, patient-focused environment.
             </p>
 
-            <p className="text-lg text-slate-600 mb-8">
-              We combine high-quality urgent care services with integrated mental-health support, ensuring you receive complete care for both body and mind - all in one convenient location.
+            <p className="text-base md:text-lg text-slate-600 mb-6 md:mb-8">
+              We welcome walk-ins and same-day appointments and offer on-site diagnostic services to ensure accurate evaluation and efficient care.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="#book" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-background font-semibold rounded-lg hover:bg-primary-hover transition shadow-lg">
+              <a href="#book" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-background font-semibold rounded-lg hover:bg-primary-hover transition shadow-lg">
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Appointment
-              </Link>
-              <Link href="tel:+1234567890" className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary font-semibold rounded-lg border-2 border-primary hover:bg-primary/10 transition">
+              </a>
+              <a href="tel:+3104314558" className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary font-semibold rounded-lg border-2 border-primary hover:bg-primary/10 transition">
                 <Phone className="w-5 h-5 mr-2" />
                 Call Now
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -87,8 +112,8 @@ const UrgentCarePage = () => {
       {/* Features Section */}
       <div className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold  text-center mb-12">
-            Why Choose Our Urgent Care
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why Choose Serene Urgent Care & Mind Clinic
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -97,7 +122,7 @@ const UrgentCarePage = () => {
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                   <feature.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold  mb-2">{feature.title}</h3>
+                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
                 <p className="text-slate-600">{feature.description}</p>
               </div>
             ))}
@@ -110,20 +135,83 @@ const UrgentCarePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              Conditions We Treat
+              Urgent Care Services We Provide
             </h2>
             <p className="text-lg text-slate-600">
-              Our experienced team is equipped to handle a wide range of urgent medical needs
+              Comprehensive care for a wide range of non-life-threatening conditions
             </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            {services.map((service, index) => (
-              <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-primary/10 transition-colors">
-                <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-                <span className="text-slate-700">{service}</span>
-              </div>
-            ))}
+          {/* Illnesses & Conditions */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">Illnesses & Conditions</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {illnessesConditions.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-primary/10 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Injuries & Minor Emergencies */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">Injuries & Minor Emergencies</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {injuriesEmergencies.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-primary/10 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Testing & Diagnostics */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">Testing & Diagnostics</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {testingDiagnostics.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-primary/10 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Treatments & Procedures */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">Treatments & Procedures</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {treatmentsProcedures.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-primary/10 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Exams & Preventive Services */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-center">Exams & Preventive Services</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {examsPreventive.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-primary/10 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Emergency Notice */}
+          <div className="mt-12 max-w-3xl mx-auto bg-red-50 border-2 border-red-200 rounded-lg p-6">
+            <p className="text-center text-red-800 font-medium">
+              <strong>For life-threatening emergencies, please call 911 or visit the nearest emergency room.</strong>
+            </p>
           </div>
         </div>
       </div>
@@ -139,7 +227,7 @@ const UrgentCarePage = () => {
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
                   <Clock className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold ">Walk-In Hours</h3>
+                <h3 className="text-2xl font-bold">Walk-In Hours</h3>
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-3 border-b border-slate-200">
@@ -164,7 +252,7 @@ const UrgentCarePage = () => {
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
                   <Stethoscope className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold ">What to Bring</h3>
+                <h3 className="text-2xl font-bold">What to Bring</h3>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start space-x-3">
@@ -197,25 +285,25 @@ const UrgentCarePage = () => {
       {/* CTA Section */}
       <div className="py-16 bg-third">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold  mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Ready to Get the Care You Need?
           </h2>
           <p className="text-xl mb-8">
             Walk in today or book an appointment online for faster service
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="#book" className="inline-flex items-center justify-center px-8 py-4 bg-background hover:bg-text  font-semibold rounded-lg hover:text-background transition shadow-lg">
+            <a href="#book" className="inline-flex items-center justify-center px-8 py-4 bg-background hover:bg-text font-semibold rounded-lg hover:text-background transition shadow-lg">
               <Calendar className="w-5 h-5 mr-2" />
               Book Online Now
-            </Link>
-            <Link href="#locations" className="inline-flex items-center justify-center px-8 py-4 bg-text text-white font-semibold rounded-lg hover:bg-background transition hover:text-text ">
+            </a>
+            <a href="#locations" className="inline-flex items-center justify-center px-8 py-4 bg-text text-white font-semibold rounded-lg hover:bg-background transition hover:text-text">
               Find Our Location
-            </Link>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default UrgentCarePage;
