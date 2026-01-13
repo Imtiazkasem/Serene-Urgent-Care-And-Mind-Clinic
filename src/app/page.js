@@ -1,5 +1,6 @@
 import AboutSection from "@/Components/LandingPages/AboutSection";
 import FAQSection from "@/Components/LandingPages/FAQSection";
+import HealthcareGallery from "@/Components/LandingPages/HealthcareGallery";
 import Hero from "@/Components/LandingPages/Hero";
 import TopServices from "@/Components/LandingPages/TopServices";
 import WhyChooseUs from "@/Components/LandingPages/WhyChooseUs";
@@ -11,7 +12,8 @@ export default function Home() {
       <WhyChooseUs />
       <TopServices />
       <AboutSection />
-      <FAQSection/>
+      <HealthcareGallery />
+      <FAQSection />
     </div>
   );
 }

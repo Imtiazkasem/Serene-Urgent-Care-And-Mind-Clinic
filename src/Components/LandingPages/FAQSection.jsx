@@ -53,7 +53,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-linear-to-br from-primary/5 to-secondary/5">
+    <section className="py-16 lg:py-24 ">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">

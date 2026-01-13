@@ -101,7 +101,7 @@ const WhyChooseUs = () => {
               href="/about-serene-urgent-care-and-mind-clinic" 
               className="px-8 py-4 bg-primary text-background font-semibold rounded-lg hover:bg-primary-hover transition shadow-lg"
             >
-              More About Seren
+              More About Serene
             </Link>
             {/* <a 
               href="#services" 
