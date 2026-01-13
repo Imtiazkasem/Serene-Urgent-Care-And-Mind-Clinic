@@ -1,43 +1,67 @@
 import React from 'react';
-import { Heart, Users, Activity, Calendar, Shield, CheckCircle, Phone, Sparkles, ClipboardCheck } from 'lucide-react';
-import Link from 'next/link';
+import { Heart, Users, Activity, Calendar, Shield, CheckCircle, Phone, Sparkles, ClipboardCheck, Stethoscope } from 'lucide-react';
 
 const PrimaryCarePage = () => {
- const services = [
-    "Annual physical exams and wellness visits",
-    "Chronic disease management (diabetes, hypertension, etc.)",
-    "Preventive care and health screenings",
+  const preventiveWellness = [
+    "Annual wellness exams and routine checkups",
+    "Preventive health screenings",
     "Immunizations and vaccinations",
-    "Women's health services",
-    "Men's health services",
-    "Pediatric and family care",
-    "Lab work and diagnostic testing",
-    "Prescription management",
-    "Weight management programs",
-    "Nutrition and lifestyle counseling",
-    "Coordination of specialist referrals"
+    "Lifestyle and wellness counseling"
+  ];
+
+  const chronicCondition = [
+    "Diabetes care and monitoring",
+    "High blood pressure and heart disease management",
+    "Asthma and COPD management",
+    "Thyroid disorders",
+    "Weight and metabolic health support"
+  ];
+
+  const diagnosisTreatment = [
+    "Evaluation and treatment of common illnesses",
+    "Management of minor injuries and ongoing conditions",
+    "Medication management and refills",
+    "Lab review and follow-up care"
+  ];
+
+  const womensmensHealth = [
+    "Women's health services and routine screenings",
+    "Men's health evaluations",
+    "Hormone-related health concerns (as clinically appropriate)"
+  ];
+
+  const mentalBehavioral = [
+    "Depression, anxiety, and ADHD screening",
+    "Medication management (when appropriate)",
+    "Coordination with mental health services"
+  ];
+
+  const labDiagnostic = [
+    "Routine blood work and diagnostic testing",
+    "In-house lab services for faster results",
+    "Review and explanation of test findings"
   ];
 
   const benefits = [
     {
       icon: Heart,
-      title: "Personalized Care",
-      description: "Tailored healthcare plans that fit your unique needs and goals"
+      title: "Personalized Relationships",
+      description: "Ongoing patient–provider relationships built on trust"
     },
     {
       icon: Activity,
-      title: "Preventive Focus",
-      description: "Proactive approach to keep you healthy and prevent illness"
+      title: "Integrated Services",
+      description: "Urgent care and mental health services in one location"
     },
     {
       icon: Users,
-      title: "Family-Centered",
-      description: "Comprehensive care for patients of all ages"
+      title: "Patient-Centered Approach",
+      description: "Evidence-based care tailored to your needs"
     },
     {
       icon: Shield,
-      title: "Integrated Wellness",
-      description: "Medical and mental health services in one location"
+      title: "Convenient Access",
+      description: "Flexible scheduling and telehealth options available"
     }
   ];
 
@@ -55,30 +79,34 @@ const PrimaryCarePage = () => {
           <div className="max-w-3xl">
             <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Sparkles className="w-4 h-4" />
-              <span>Comprehensive Family Healthcare</span>
+              <span>Comprehensive Primary Healthcare</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Primary Care for Your <span className="text-primary">Whole Family</span>
+              Primary Care at <span className="text-primary">Serene Urgent Care & Mind Clinic</span>
             </h1>
             
-            <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              Primary Care at Serene Urgent Care & Mind Clinic provides personalized, continuous healthcare for you and your family. Our providers focus on preventive care, chronic condition management, and overall wellness, taking the time to understand your needs and support your long-term health goals.
+            <p className="text-lg md:text-xl text-slate-600 mb-4 md:mb-8 leading-relaxed">
+              Serene Urgent Care & Mind Clinic offers comprehensive primary care services focused on prevention, early diagnosis, and long-term health management. Our primary care team partners with you to support your overall well-being through personalized, continuous care in a comfortable and welcoming environment.
+            </p>
+
+            <p className="text-base md:text-lg text-slate-600 mb-6 md:mb-8">
+              Primary care at Serene is designed to help you stay healthy, manage chronic conditions, and address health concerns before they become more serious. We emphasize preventive care, routine screenings, and coordinated treatment plans tailored to your individual needs.
             </p>
 
             <p className="text-lg text-slate-600 mb-8">
-              With a calm environment and convenient access to both medical and mental-health services, we make comprehensive, whole-person care simple and accessible.
+              With convenient scheduling, same-day appointments when available, and integrated urgent care and mental health services, Serene provides a seamless healthcare experience, all under one roof.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="#book" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-hover transition shadow-lg">
+              <a href="#book" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-hover transition shadow-lg">
                 <Calendar className="w-5 h-5 mr-2" />
                 Schedule Visit
-              </Link>
-              <Link href="#new-patient" className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary font-semibold rounded-lg border-2 border-teal-600 hover:bg-teal-50 transition">
+              </a>
+              <a href="#new-patient" className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary font-semibold rounded-lg border-2 border-teal-600 hover:bg-teal-50 transition">
                 <ClipboardCheck className="w-5 h-5 mr-2" />
                 New Patient Forms
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -87,8 +115,8 @@ const PrimaryCarePage = () => {
       {/* Benefits Section */}
       <div className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold  text-center mb-12">
-            Why Choose Us for Primary Care
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why Choose Serene for Primary Care
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -97,7 +125,7 @@ const PrimaryCarePage = () => {
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                   <benefit.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold  mb-2">{benefit.title}</h3>
+                <h3 className="text-lg font-bold mb-2">{benefit.title}</h3>
                 <p className="text-slate-600">{benefit.description}</p>
               </div>
             ))}
@@ -109,21 +137,90 @@ const PrimaryCarePage = () => {
       <div className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold  mb-4">
-              Our Primary Care Services
+            <h2 className="text-3xl font-bold mb-4">
+              Primary Care Services We Provide
             </h2>
             <p className="text-lg text-slate-600">
-              Complete healthcare solutions for every stage of life
+              Comprehensive care for prevention, diagnosis, and long-term health management
             </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            {services.map((service, index) => (
-              <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-teal-50 transition-colors">
-                <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-                <span className="text-slate-700">{service}</span>
-              </div>
-            ))}
+          {/* Preventive & Wellness Care */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">Preventive & Wellness Care</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              {preventiveWellness.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-teal-50 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Chronic Condition Management */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">Chronic Condition Management</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {chronicCondition.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-teal-50 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Diagnosis & Treatment */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">Diagnosis & Treatment</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              {diagnosisTreatment.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-teal-50 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Women's & Men's Health */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">Women&apos;s & Men&apos;s Health</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {womensmensHealth.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-teal-50 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mental & Behavioral Health Integration */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center">Mental & Behavioral Health Integration</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {mentalBehavioral.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-teal-50 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Lab & Diagnostic Services */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-center">Lab & Diagnostic Services</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {labDiagnostic.map((service, index) => (
+                <div key={index} className="flex items-center space-x-3 bg-slate-50 rounded-lg p-4 hover:bg-teal-50 transition-colors">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-slate-700">{service}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -134,7 +231,7 @@ const PrimaryCarePage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                Our Whole-Person Approach
+                Our Commitment to Your Health
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
@@ -142,8 +239,8 @@ const PrimaryCarePage = () => {
                     <CheckCircle className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">Preventive First</h3>
-                    <p className="text-slate-600">Regular screenings and wellness exams to catch issues early</p>
+                    <h3 className="font-bold text-slate-900 mb-1">Prevention First</h3>
+                    <p className="text-slate-600">Emphasizing preventive care and routine screenings to keep you healthy</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -151,8 +248,8 @@ const PrimaryCarePage = () => {
                     <CheckCircle className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">Continuity of Care</h3>
-                    <p className="text-slate-600">Build lasting relationships with providers who know your history</p>
+                    <h3 className="font-bold text-slate-900 mb-1">Coordinated Care Plans</h3>
+                    <p className="text-slate-600">Tailored treatment plans designed for your individual needs</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -160,8 +257,8 @@ const PrimaryCarePage = () => {
                     <CheckCircle className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">Integrated Mental Health</h3>
-                    <p className="text-slate-600">Address both physical and mental wellness in one place</p>
+                    <h3 className="font-bold text-slate-900 mb-1">Integrated Services</h3>
+                    <p className="text-slate-600">Seamless access to urgent care and mental health support</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -169,8 +266,8 @@ const PrimaryCarePage = () => {
                     <CheckCircle className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">Patient Education</h3>
-                    <p className="text-slate-600">Empower you with knowledge to make informed health decisions</p>
+                    <h3 className="font-bold text-slate-900 mb-1">HIPAA-Compliant Care</h3>
+                    <p className="text-slate-600">Confidential, secure, and respectful healthcare services</p>
                   </div>
                 </div>
               </div>
@@ -197,7 +294,7 @@ const PrimaryCarePage = () => {
                   <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">3</div>
                   <div>
                     <h4 className="font-semibold text-slate-900">Meet Your Provider</h4>
-                    <p className="text-sm text-slate-600">Comprehensive assessment and care plan</p>
+                    <p className="text-sm text-slate-600">Comprehensive assessment and personalized care plan</p>
                   </div>
                 </div>
               </div>
@@ -209,26 +306,26 @@ const PrimaryCarePage = () => {
       {/* CTA Section */}
       <div className="py-16 bg-third">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold  mb-4">
-            Become a Patient Today
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Partner With Us for Your Health
           </h2>
           <p className="text-xl mb-8">
-            Join our family and experience personalized, compassionate healthcare
+            Experience personalized, comprehensive primary care that supports your health at every stage of life
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="#book" className="inline-flex items-center justify-center px-8 py-4 bg-background text-text font-semibold rounded-lg hover:bg-text hover:text-background transition shadow-lg">
+            <a href="#book" className="inline-flex items-center justify-center px-8 py-4 bg-background text-text font-semibold rounded-lg hover:bg-text hover:text-background transition shadow-lg">
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Your First Visit
-            </Link>
-            <Link href="tel:+1234567890" className="inline-flex items-center justify-center px-8 py-4 bg-text text-white font-semibold rounded-lg hover:bg-background transition hover:text-text">
+            </a>
+            <a href="tel:+1234567890" className="inline-flex items-center justify-center px-8 py-4 bg-text text-white font-semibold rounded-lg hover:bg-background transition hover:text-text">
               <Phone className="w-5 h-5 mr-2" />
               Call Us Today
-            </Link>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default PrimaryCarePage;
